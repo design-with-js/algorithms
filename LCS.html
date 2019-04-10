@@ -1,0 +1,93 @@
+<script>
+  class Node {
+    constructor(data, next = null) {
+      this.data = data;
+      this.next = next;
+    }
+  }
+
+  class LinkedList {
+    constructor(data) {
+      this.head = new Node(data);
+      this.tail = this.head;
+      this.length = 1;
+    }
+
+    insert(data) {
+      this.tail.next = new Node(data);
+      this.tail = this.tail.next;
+      this.length++;
+    }
+
+    attach(list) {
+      this.tail.next = list.head;
+      this.tail = list.tail;
+      this.length += list.length;
+    }
+
+    toArray() {
+      var arr = [],
+        node = this.head;
+      while (node != null) {
+        arr.push(node.data);
+        node = node.next;
+      }
+      return arr;
+    }
+  }
+
+  var max = function(nums) {
+    var t = Number.MIN_SAFE_INTEGER;
+    nums.forEach(num => {
+      if (t < num) {
+        t = num;
+      }
+    });
+    return t;
+  };
+
+  /**
+   * @param {number[]} nums
+   * @return {number}
+   */
+  var longestConsecutive = function(nums) {
+    var diff = Number.MAX_SAFE_INTEGER - max(nums);
+
+    // nums = nums.map(num => num + diff);
+
+    var obj = {};
+
+    nums.forEach(num => {
+      if (obj[num]) {
+        return;
+      } else {
+        obj[num] = new LinkedList(num);
+      }
+      if (obj[num + 1]) {
+        obj[num].attach(obj[num + 1]);
+      }
+      if (obj[num - 1]) {
+        obj[num - 1].attach(obj[num]);
+      }
+    });
+
+    var maxList;
+
+    for (key in obj) {
+      // console.log({ key });
+      // console.log(obj[key].length);
+      if (!maxList || (maxList && obj[key].length > maxList.length)) {
+        maxList = obj[key];
+      }
+    }
+
+    console.log(maxList.toArray(), maxList.length);
+    // console.log(JSON.stringify(obj));
+    return maxList ? maxList.toArray().length : 0;
+  };
+
+  
+  longestConsecutive([9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]);
+
+
+</script>
