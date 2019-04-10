@@ -1,3 +1,5 @@
 {
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 14
 }

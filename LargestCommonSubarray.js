@@ -3,7 +3,7 @@ function LargestCommonSubarray(a, b) {
     n = b.length;
 
   let max = [];
-
+  // O(m*n)
   // make a 2d array d of size m,n with all blank arrays
   // double loop(i,j) on a and b
   // d[i][j] = d[i-1][j-1].concat(a[i]) if a[i] == b[i]
