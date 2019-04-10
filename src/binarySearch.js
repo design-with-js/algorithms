@@ -1,13 +1,16 @@
 //nums = [4,5,6,7,8,9] and val = 8
 
-avg = (a, b) => Math.floor((a + b) / 2);
+// Important takeaway: Always make the loop till lo <= hi
+// if its striking infinite loop, write a if(lo == hi){break;} statement somewhere appropriate
+
+const avg = (a, b) => Math.floor((a + b) / 2);
 
 function binarySearch(nums /*increasing sorted array*/, val) {
   var lo = 0,
     hi = nums.length - 1;
 
   while (lo <= hi) {
-    console.log({ lo, hi });
+    // console.log({ lo, hi });
 
     var mid = avg(lo, hi);
     if (val === nums[mid]) return mid;
