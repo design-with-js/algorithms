@@ -13,15 +13,11 @@ function rangeSearch(nums, target) {
   let mid;
   while (lo <= hi) {
     mid = Math.floor((hi + lo) / 2);
-    if(lo == hi) break;
     if (target > nums[mid]) {
       lo = mid + 1;
     } else {
-      hi = mid;
+      hi = mid - 1;
     }
-  }
-  if (nums[mid] != target) {
-    return [-1, -1];
   }
   const leftOccur = lo;
 
@@ -29,18 +25,23 @@ function rangeSearch(nums, target) {
   hi = n - 1;
 
   while (lo <= hi) {
-    mid = Math.ceil((hi + lo) / 2);
-    if(lo == hi) break;
+    mid = Math.floor((hi + lo) / 2);
     if (target < nums[mid]) {
       hi = mid - 1;
     } else {
-      lo = mid;
+      lo = mid + 1;
     }
   }
-  const rightOccur = lo;
+  const rightOccur = lo - 1;
 
-  return { leftOccur, rightOccur };
+  if (rightOccur < leftOccur) {
+    return [-1, -1];
+  }
+  return [leftOccur, rightOccur];
 }
 
 // eslint-disable-next-line
 console.log(rangeSearch([5, 7, 7, 8, 8, 10], 8));
+console.log(rangeSearch([1], 1));
+console.log(rangeSearch([1, 4, 5], 4));
+console.log(rangeSearch([1, 4, 5], 7));

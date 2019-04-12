@@ -1,6 +1,7 @@
 //nums = [4,5,6,7,8,9] and val = 8
 
-// Important takeaway: Always make the loop till lo <= hi
+// Important takeaway: Always make the loop till lo <= hi and 
+// search in mid + 1 to hi or lo to mid - 1
 // if its striking infinite loop, write a if(lo == hi){break;} statement somewhere appropriate
 
 const avg = (a, b) => Math.floor((a + b) / 2);
