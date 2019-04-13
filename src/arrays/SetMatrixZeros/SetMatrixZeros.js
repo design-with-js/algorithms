@@ -40,35 +40,73 @@ export function setZeroes(matrix) {
   const m = matrix.length,
     n = matrix[0].length;
 
+  let isFirstRow = false,
+    isFirstColumn = false;
+
+  /**
+  Check if first row has a 0 or first column has a 0
+  */
+
   for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
+    if (matrix[i][0] == 0) {
+      isFirstRow = true;
+    }
+  }
+
+  for (let j = 0; j < n; j++) {
+    if (matrix[0][j] == 0) {
+      isFirstColumn = true;
+    }
+  }
+
+  /**
+  Traverse each element except first row and first column, if the element is 0,
+  mark topmost and left most element as 0 in its row.
+  */
+
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
       if (matrix[i][j] === 0) {
-        // this set of i and j should be zeroed.
-        matrix[0][j] = -1;
-        matrix[i][0] = -2;
-        if (i == 0 && j == 0) {
-          matrix[i][j] = -3;
-        }
+        matrix[0][j] = matrix[i][0] = 0;
       }
     }
   }
 
-  for (let i = 1; i < m; i++) {
-    if (matrix[i][0] === -2) {
-      matrix[i] = matrix[i].map(t => 0);
-    }
-  }
+  /**
+  Traverse all first element of rows except first row and if its 0 then mark entire row 0
+  */
 
-  for (let j = 1; j < n; j++) {
-    if (matrix[0][j] === -1) {
-      for (let i = 0; i < m; i++) {
+  for (let i = 1; i < m; i++) {
+    if (matrix[i][0] == 0) {
+      for (let j = 1; j < n; j++) {
         matrix[i][j] = 0;
       }
     }
   }
 
-  if (matrix[0][0] == -3) {
-    matrix[0] = matrix[0].map(() => 0);
+  /**
+  Traverse all first element of columns except first column and if its 0 then mark entire column 0
+  */
+
+  for (let j = 1; j < n; j++) {
+    if (matrix[0][j] == 0) {
+      for (let i = 1; i < m; i++) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+
+  /**
+  If original matrix had 0 in first column or first row, mark that row or column as 0
+  */
+
+  if (isFirstColumn) {
+    for (let j = 0; j < n; j++) {
+      matrix[0][j] = 0;
+    }
+  }
+
+  if (isFirstRow) {
     for (let i = 0; i < m; i++) {
       matrix[i][0] = 0;
     }
