@@ -19,5 +19,4 @@ TODOs:
 
 2. Fragmentation of the src/ and problems/ directories into different sections based on the ds-alo topic that problem relates to.
 
-3. Integration with jest to provide unit test cases to make it a test driven project where user can add more test cases and implement 
-   improvements to the provided solution and verify if test cases are failing or not.
+3. Cover all the probems with unit test cases.
