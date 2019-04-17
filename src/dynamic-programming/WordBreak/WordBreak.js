@@ -29,7 +29,7 @@ export function wordBreak(s, wordDict) {
   /*
     take an array d[] of length|s|, d[i] will be the answer at ith position
     Recursive relation:
-    d[j] = d[i] + wordDict.hasWord(s.substring(i, j)) | j = i to j = n
+    d[j] = d[i] && wordDict.hasWord(s.substring(i, j)) | j = i to j = n
   */
 
   let n = s.length,
