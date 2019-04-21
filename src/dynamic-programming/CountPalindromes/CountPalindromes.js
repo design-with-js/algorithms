@@ -122,7 +122,12 @@ function CountPalindromes(str) {
   return count;
 }
 
-console.log(CountPalindromes("abbaeae"));
+console.log(LongestPalindrome("abaab"));
+console.log(LongestPalindrome("bbabba"));
+console.log(LongestPalindrome("bbbb"));
+console.log(LongestPalindrome("xabcbax"));
+console.log(LongestPalindrome("abbaeae"));
+console.log(LongestPalindrome("aeryyera"));
 
 console.log(
   CountPalindromes(
