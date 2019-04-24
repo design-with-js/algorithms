@@ -242,6 +242,18 @@ class LinkedList {
     }
     node.next = list.head;
   }
+
+  /**
+   * Returns the end node of the list
+   * @return {Node} end node of the list
+   */
+  end() {
+    let node = this.head;
+    while (node.next) {
+      node = node.next;
+    }
+    return node;
+  }
 }
 
 /**
