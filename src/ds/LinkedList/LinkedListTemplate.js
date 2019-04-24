@@ -8,6 +8,10 @@ class Node {
     this.next = next;
     this.value = value;
   }
+
+  toList() {
+    return new LinkedList(this);
+  }
 }
 
 class LinkedList {
@@ -114,6 +118,15 @@ class LinkedList {
     let i = 0,
       iterator = this.head,
       node;
+
+    /*
+    Deleting from the front
+     */
+    if (index == 0) {
+      let value = this.head.value;
+      this.head = this.head.next;
+      return value;
+    }
     while (i < index) {
       iterator = iterator.next;
       node = iterator.next;
@@ -163,11 +176,13 @@ class LinkedList {
    * @param  {Node} nodeY second node
    */
   swap(nodeX, nodeY) {
-    let node = this.head, prevX, prevY;
-    while(node) {
-      if(node.next == nodeX) {
+    let node = this.head,
+      prevX,
+      prevY;
+    while (node) {
+      if (node.next == nodeX) {
         prevX = node;
-      } else if(node.next == nodeY) {
+      } else if (node.next == nodeY) {
         prevY = node;
       }
       node = node.next;
@@ -204,14 +219,28 @@ class LinkedList {
    * Reverse the given linked-list in place
    */
   reverse() {
-    let node = this.head, prev = null, next = node.next;
-    while(node) {
+    let node = this.head,
+      prev = null,
+      next = node.next;
+    while (node) {
       node.next = prev;
-      prev = node
-      node = next
+      prev = node;
+      node = next;
       next = next && next.next;
     }
     this.head = prev;
+  }
+
+  /**
+   * Concatenating a list in the given list, It modifies the original list
+   * @param  {Node} head Non-empty linked list that needs to be concat
+   */
+  concat(head) {
+    let node = this.head;
+    while (node.next) {
+      node = node.next;
+    }
+    node.next = list.head;
   }
 }
 
@@ -239,13 +268,11 @@ console.log("ll length:", ll.length());
 
 console.log("ll length recursively:", length(ll.head));
 
-
-ll.swapByVal(1,2)
+ll.swapByVal(1, 2);
 ll.display();
 
-ll.swapByVal(2,5);
+ll.swapByVal(2, 5);
 ll.display();
-
 
 ll.reverse();
 ll.display();
