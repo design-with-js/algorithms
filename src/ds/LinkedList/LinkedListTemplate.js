@@ -46,6 +46,7 @@ class LinkedList {
   /**
    * Append node at the end of the list
    * @param  {Node} node A non empty node to be inserted
+   * @return {LinkedList} returns current linked-list
    */
   append(node) {
     if (this.head) {
@@ -57,25 +58,30 @@ class LinkedList {
     } else {
       this.head = node;
     }
+    return this;
   }
 
   /**
    * Prepend a node at the start of the list
    * @param {Node!} node A non empty node to be inserted
+   * @return {LinkedList} Returns current linked-list
    */
   prepend(node) {
     node.next = this.head;
     this.head = node;
+    return this;
   }
 
   /**
    * Insert a node at a given node from the linked-list
    * @param  {Node!} atNode Any node from the linked-list
    * @param  {Node!} node   A non empty node to be inserted
+   * @return {LinkedList} Returns current Linked-List
    */
   insertAt(atNode, node) {
     node.next = atNode.next;
     atNode.next = node;
+    return this;
   }
 
   /**
