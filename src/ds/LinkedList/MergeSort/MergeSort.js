@@ -14,6 +14,8 @@ function halfSplit(head) {
   let head2 = oneJ.next;
   oneJ.next = null;
   return [head, head2];
+
+  //TODO: Instead of splitting original list into 2 halves, return 2 new lists
 }
 
 function mergeSort(head) {
