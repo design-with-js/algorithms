@@ -29,6 +29,13 @@ class DLL {
     // this.length++;
   }
 
+  push(value) {
+    let end = this.end();
+    let node = new Node(value);
+    end.next = node;
+    node.prev = end;
+  }
+
   pop() {
     if (this.head) {
       node = this.head;
@@ -56,6 +63,14 @@ class DLL {
     }
     str += "null";
     console.log(str);
+  }
+
+  end() {
+    let node = this.head;
+    while (node.next) {
+      node = node.next;
+    }
+    return node;
   }
 
   delete(value) {}
