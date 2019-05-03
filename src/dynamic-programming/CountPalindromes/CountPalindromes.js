@@ -102,10 +102,6 @@ function CountPalindromes(str) {
         palindromeCounts[i - pc.found].isCenter &&
         palindromeCounts[i + pc.found].isCenter
       ) {
-        palindromeCounts[i].expected += min(
-          palindromeCounts[i - pc.found].found,
-          palindromeCounts[i + pc.found].found
-        );
         palindromeCounts[i].found += min(
           palindromeCounts[i - pc.found].found,
           palindromeCounts[i + pc.found].found
