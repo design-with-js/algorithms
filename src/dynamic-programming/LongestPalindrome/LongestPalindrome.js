@@ -68,10 +68,6 @@ function LongestPalindrome(str) {
         palindromeLengths[i - pc.found].isCenter &&
         palindromeLengths[i + pc.found].isCenter
       ) {
-        palindromeLengths[i].expected += min(
-          palindromeLengths[i - pc.found].found,
-          palindromeLengths[i + pc.found].found
-        );
         palindromeLengths[i].found += min(
           palindromeLengths[i - pc.found].found,
           palindromeLengths[i + pc.found].found
