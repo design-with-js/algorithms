@@ -31,6 +31,8 @@ class Stack {
     };
     this.top = () => arr[arr.length - 1];
 
+    this.display = () => console.log(arr);
+
     this.isEmpty = () => this.length == 0;
   }
 }
