@@ -47,7 +47,7 @@ All palindrome substring are : "bb" , "abba" ,"aea","eae"
 */
 
 function CountPalindromes(str) {
-  console.log({ str });
+  // console.log({ str });
   const n = str.length;
 
   // Making the field array for DP solution
@@ -118,15 +118,25 @@ function CountPalindromes(str) {
   return count;
 }
 
-console.log(LongestPalindrome("abaab"));
-console.log(LongestPalindrome("bbabba"));
-console.log(LongestPalindrome("bbbb"));
-console.log(LongestPalindrome("xabcbax"));
-console.log(LongestPalindrome("abbaeae"));
-console.log(LongestPalindrome("aeryyera"));
+// console.log(CountPalindromes("abaab"));
+// console.log(CountPalindromes("bbabba"));
+// console.log(CountPalindromes("bbbb"));
+// console.log(CountPalindromes("xabcbax"));
+// console.log(CountPalindromes("abbaeae"));
+// console.log(CountPalindromes("aeryyera"));
+//
+// console.log(
+//   CountPalindromes(
+//     "jycidhaicmkwwidmhmrigcetrukmembyumzfyocshvykosipvmwqssteqvsatjxyxqsoxmwxxnledkzqfvndypwpmxroxfqtuzfbwqdsqacbfspbujlfhmmvakebzycythgvnvzbkqpfonggzletubwozmkhrvhfbyeaodfkjayjjhoyyxcthnnhmithtrzxxzjsjpbbptuvuhkwjhmqfisgamnyrnpevfapqfeoxb"
+//   )
+// );
+
+var benchmark = require("../../../benchmark");
 
 console.log(
-  CountPalindromes(
+  benchmark(
+    100000,
+    CountPalindromes,
     "jycidhaicmkwwidmhmrigcetrukmembyumzfyocshvykosipvmwqssteqvsatjxyxqsoxmwxxnledkzqfvndypwpmxroxfqtuzfbwqdsqacbfspbujlfhmmvakebzycythgvnvzbkqpfonggzletubwozmkhrvhfbyeaodfkjayjjhoyyxcthnnhmithtrzxxzjsjpbbptuvuhkwjhmqfisgamnyrnpevfapqfeoxb"
   )
 );

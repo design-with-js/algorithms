@@ -1,4 +1,5 @@
 # practice
+
 Problem solving activity with javascript/es6
 
 Any contribution in the form of new problems/solutions is most welcome.
@@ -20,3 +21,10 @@ TODOs:
 2. Fragmentation of the src/ and problems/ directories into different sections based on the ds-alo topic that problem relates to.
 
 3. Cover all the probems with unit test cases.
+
+╭━━━┳━━━━┳━━━┳╮╱╱╭╮
+┃╭━╮┃╭╮╭╮┃╭━╮┃╰╮╭╯┃
+┃╰━━╋╯┃┃╰┫┃╱┃┣╮╰╯╭╯
+╰━━╮┃╱┃┃╱┃╰━╯┃╰╮╭╯
+┃╰━╯┃╱┃┃╱┃╭━╮┃╱┃┃
+╰━━━╯╱╰╯╱╰╯╱╰╯╱╰╯

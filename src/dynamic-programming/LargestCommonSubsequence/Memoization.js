@@ -21,7 +21,7 @@ function LCS(A, B) {
 }
 
 function lcsMemo(A, B, i, j, d) {
-  if(i == 0 || j == 0) {
+  if (i == 0 || j == 0) {
     return 0;
   }
 
@@ -30,9 +30,11 @@ function lcsMemo(A, B, i, j, d) {
   }
 
   if (A[i] == B[j]) {
-    return lcsMemo(A, B, i - 1, j - 1, d) + 1;
+    d[i][j] = lcsMemo(A, B, i - 1, j - 1, d) + 1;
+    return d[i][j];
   } else {
-    return max(lcsMemo(A, B, i - 1, j, d), lcsMemo(A, B, i, j - 1, d));
+    d[i][j] = max(lcsMemo(A, B, i - 1, j, d), lcsMemo(A, B, i, j - 1, d));
+    return d[i][j];
   }
 }
 

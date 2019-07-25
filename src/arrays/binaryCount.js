@@ -1,4 +1,3 @@
-
 /**
  * Count the number of occurances of a target in given sorted array nums
  * @param  {number[]} nums   A sorted array
@@ -11,15 +10,15 @@ function binaryCount(nums, target) {
 
   let left, right;
 
-  while(l < r) {
+  while (l < r) {
     let mid = Math.floor((l + r) / 2);
-    if(nums[mid] >= target) {
+    if (nums[mid] >= target) {
       r = mid;
     } else {
       l = mid + 1;
     }
   }
-  if(nums[l] != target) {
+  if (nums[l] != target) {
     return 0;
   }
   left = l;
@@ -27,9 +26,9 @@ function binaryCount(nums, target) {
   l = 0;
   r = nums.length - 1;
 
-  while(l < r) {
-    let mid = Math.ceil((l+r)/2);
-    if(nums[mid] <= target) {
+  while (l < r) {
+    let mid = Math.ceil((l + r) / 2);
+    if (nums[mid] <= target) {
       l = mid;
     } else {
       r = mid - 1;
@@ -40,3 +39,5 @@ function binaryCount(nums, target) {
 
   return right - left + 1;
 }
+
+console.log(binaryCount([1, 2, 2, 2, 3, 4, 5], 2));

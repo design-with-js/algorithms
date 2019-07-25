@@ -41,13 +41,15 @@ function LongestPalindrome(str) {
       let expectedLength = o[str[i]][m - 1] - o[str[i]][m - 2] + 1;
 
       // Mark middle element as center if first and last occurance of str[i] are close to <=2 distance
-      if(expectedLength <= 3) {
+      if (expectedLength <= 3) {
         palindromeLengths[middle].isCenter = true;
       }
 
-
       // update the palindromeLengths of the middle element starting and ending with str[i]
-      if(palindromeLengths[middle].isCenter && expectedLength == palindromeLengths[middle].found + 2) {
+      if (
+        palindromeLengths[middle].isCenter &&
+        expectedLength == palindromeLengths[middle].found + 2
+      ) {
         palindromeLengths[middle].found += 2;
       }
     } else {
@@ -80,8 +82,6 @@ function LongestPalindrome(str) {
 
   console.log({ palindromeLengths, o });
 
-
-
   return maxP;
 }
 
@@ -91,11 +91,11 @@ console.log(LongestPalindrome("bbbb"));
 console.log(LongestPalindrome("xabcbax"));
 console.log(LongestPalindrome("abbaeae"));
 console.log(LongestPalindrome("aeryyera"));
-
 console.log(
   LongestPalindrome(
     "jycidhaicmkwwidmhmrigcetrukmembyumzfyocshvykosipvmwqssteqvsatjxyxqsoxmwxxnledkzqfvndypwpmxroxfqtuzfbwqdsqacbfspbujlfhmmvakebzycythgvnvzbkqpfonggzletubwozmkhrvhfbyeaodfkjayjjhoyyxcthnnhmithtrzxxzjsjpbbptuvuhkwjhmqfisgamnyrnpevfapqfeoxb"
   )
 );
+console.log(LongestPalindrome("bananas"));
 
 module.exports = LongestPalindrome;

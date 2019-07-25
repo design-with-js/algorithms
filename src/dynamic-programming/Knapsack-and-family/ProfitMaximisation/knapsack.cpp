@@ -27,6 +27,7 @@ int knapsack(int N, int W, int w[], int v[]) {
 int main() {
   //code
   int t, N, W, w[1000], v[1000];
+  cout<<"Knapsack\n";
   cin >> t;
   while(t--) {
       cin>>N>>W;

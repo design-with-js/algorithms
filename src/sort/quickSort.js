@@ -1,34 +1,35 @@
-let t = 0
+let t = 0;
 
 function partition(arr, l, r) {
-  console.log(t++);
-  let key = arr[l];
-  let i = l;
-  j = r;
-  while (j > i) {
-    if (arr[i] > key) {
-      [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
-    } else if (arr[j] < key) {
-      [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
+  let key = arr[Math.floor((l + r) / 2)];
+  let i = l,
+    j = r;
+
+  while (i <= j) {
+    while (arr[i] < key) i++;
+    while (arr[j] > key) j--;
+    if (i <= j) {
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      i++;
+      j--;
     }
-    if (arr[i] < key) i++;
-    if (arr[j] > key) j--;
   }
-  return j;
+  return i;
 }
 
-arr = [10, 11, 12, 7, 8, 9, 13, 14];
+arr = [10, 11, 12, 7, 8, 9, 14, 13];
 // console.log(partition(arr, 0, 7));
 // console.log(arr);
 
 function quickSort(arr, l, r) {
-  console.log({l, r}, t++);
-  if(l >= r) return;
+  console.log({ l, r }, t++);
+  if (l >= r) return;
   let pivot = partition(arr, l, r);
-  quickSort(arr, l, pivot);
-  quickSort(arr, pivot + 1, r);
+  quickSort(arr, l, pivot - 1);
+  quickSort(arr, pivot, r);
 }
 
 quickSort(arr, 0, 7);
 
+quickSort([1, 1], 0, 1);
 console.log(arr);
